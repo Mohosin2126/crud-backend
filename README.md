@@ -60,4 +60,19 @@ app.get("/users", async (req, res) => {
 ```
 
 
+## Post 
+### Endpoint:"/withlist"
+### Method:"post"
+
+
+```js
+app.post("/wishlist", async (req, res) => {
+  const cart = req.body;
+  const result = await wishlistCollection.insertOne(cart);
+  res.send(result);
+});
+
+```
+
+
 
