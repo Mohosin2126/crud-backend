@@ -27,7 +27,37 @@ app.get("/users", async (req, res) => {
   }
 ]
 
+```
+
+
+## Get User by Email
+### Endpoint:"/users"
+### Method:"Get"
+
+
+```js
+app.get("/users", async (req, res) => {
+  const email = req.query.email;
+  const query = { email: email };
+  const result = await userCollection.find(query).toArray();
+  res.send(result);
+});
 
 
 ```
+### output:
+
+```js
+[
+  {
+    "_id": "user1_id",
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+  }
+]
+
+
+```
+
+
 
