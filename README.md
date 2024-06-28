@@ -73,6 +73,25 @@ app.post("/wishlist", async (req, res) => {
 });
 
 ```
+## Update
+### Endpoint:"/users/admin/:id"
+### Method:"patch"
+
+```js
+ app.patch('/users/admin/:id',async(req,res)=>{
+  const id=req.params.id 
+  const filter ={_id: new ObjectId(id)}
+//   update field
+  const updatedDoc={
+    $set:{
+      role:"admin"
+    }
+  }
+  const result =await userCollection.updateOne(filter,updatedDoc)
+  res.send(result)
+ })
+
+```
 
 
 ## Delete
@@ -89,6 +108,8 @@ app.delete("/wishlist/:id",async(req,res)=>{
 })
 
 ```
+
+
 
 
 
