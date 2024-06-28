@@ -117,7 +117,7 @@ if (existingUser){
 ```
 
 
-## Delete
+## Delete 1
 ### Endpoint:"/withlist/:id"
 ### Method:"delete"
 
@@ -132,7 +132,26 @@ app.delete("/wishlist/:id",async(req,res)=>{
 
 ```
 
+## Delete 2
+### Endpoint:"/withlist/:id"
+### Method:"delete"
 
 
+
+```js
+app.delete("/withlist/:id", async (req, res) => {
+      const id=req.params.id
+      const query = {
+        id: new ObjectId(id),
+      };
+      try {
+        const result = await wishlistCollection.deleteOne(query);
+        res.send(result);
+      } catch (error) {
+        console.error("Error deleting application:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
+    ```
 
 
