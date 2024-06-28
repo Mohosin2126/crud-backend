@@ -75,4 +75,20 @@ app.post("/wishlist", async (req, res) => {
 ```
 
 
+## Delete
+### Endpoint:"/withlist/:id"
+### Method:"delete"
+
+
+```js
+app.delete("/wishlist/:id",async(req,res)=>{
+  const id=req.params.id
+  const query={_id: new ObjectId(id)}
+  const result=await wishlistCollection.deleteOne(query)
+  res.send(result)
+})
+
+```
+
+
 
