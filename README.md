@@ -30,13 +30,13 @@ app.get("/users", async (req, res) => {
 ```
 
 
-## Get User by Email
-### Endpoint:"/users"
+## Get User by Email 
+### Endpoint:"/users/:email"
 ### Method:"Get"
 
 
 ```js
-app.get("/users", async (req, res) => {
+app.get("/users/:email", async (req, res) => {
   const email = req.query.email;
   const query = { email: email };
   const result = await userCollection.find(query).toArray();
@@ -45,6 +45,9 @@ app.get("/users", async (req, res) => {
 
 
 ```
+
+
+
 ### output:
 
 ```js
